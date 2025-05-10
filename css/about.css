@@ -1,0 +1,115 @@
+/* ================ ABOUT PAGE STYLES ================ */
+body {
+  font-size: 1.1rem; /* Increased base font size */
+  line-height: 1.7; /* Increased line height for better readability */
+}
+
+.about {
+  max-width: 1400px; /* Increased from 1200px */
+  margin: 3rem auto; /* Increased margin */
+  padding: 3rem; /* Increased padding */
+}
+
+.about h2 {
+  text-align: center;
+  font-size: 3rem; /* Increased heading size */
+  color: #0b3d91;
+  margin-bottom: 3rem; /* Increased margin */
+  position: relative;
+}
+
+.about h2::after {
+  content: '';
+  display: block;
+  width: 150px; /* Increased width */
+  height: 5px; /* Increased height */
+  background: #ffcc00;
+  margin: 1rem auto; /* Increased margin */
+}
+
+.about-content {
+  display: flex;
+  flex-direction: row; /* Changed from row-reverse to put image on left */
+  align-items: center;
+  gap: 4rem; /* Increased gap */
+  margin-top: 3rem; /* Increased margin */
+}
+
+.about-content img {
+  width: 55%; /* Slightly increased width */
+  max-width: 600px; /* Increased max-width */
+  border-radius: 15px; /* Increased border radius */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15); /* Enhanced shadow */
+  transition: transform 0.3s ease;
+}
+
+.about-content img:hover {
+  transform: scale(1.03); /* Slightly increased hover effect */
+}
+
+.about-content .text {
+  width: 45%; /* Adjusted to match image width */
+  padding: 2rem; /* Added padding */
+}
+
+.about-content .text p {
+  margin-bottom: 2rem; /* Increased margin */
+  font-size: 1.2rem; /* Increased font size */
+  line-height: 1.8; /* Increased line height */
+  color: #444;
+}
+
+.about-content .text strong {
+  color: #0b3d91;
+  font-weight: 700; /* Increased font weight */
+}
+
+/* ================ RESPONSIVE DESIGN ================ */
+@media (max-width: 992px) {
+  .about {
+    max-width: 1200px;
+    padding: 2.5rem;
+  }
+  
+  .about-content {
+    gap: 3rem;
+  }
+}
+
+@media (max-width: 768px) {
+  body {
+    font-size: 1rem;
+  }
+  
+  .about-content {
+    flex-direction: column;
+  }
+  
+  .about-content img,
+  .about-content .text {
+    width: 100%;
+  }
+  
+  .about-content img {
+    max-width: 100%;
+    margin-bottom: 2rem;
+  }
+  
+  .about-content .text {
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .about {
+    padding: 2rem;
+  }
+  
+  .about h2 {
+    font-size: 2.2rem;
+  }
+  
+  .about-content {
+    gap: 2rem;
+  }
+}
