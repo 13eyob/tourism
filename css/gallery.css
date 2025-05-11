@@ -1,0 +1,177 @@
+/* ================ GALLERY PAGE STYLES ================ */
+.gallery {
+  max-width: 1400px;
+  margin: 6rem auto 3rem; /* Account for fixed header */
+  padding: 2rem;
+}
+
+.gallery h2 {
+  text-align: center;
+  font-size: 2.5rem;
+  color: #0b3d91;
+  margin-bottom: 2rem;
+  position: relative;
+  padding-bottom: 1rem;
+}
+
+.gallery h2::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 4px;
+  background: #ffcc00;
+}
+
+.carousel {
+  position: relative;
+  overflow: hidden;
+  margin: 0 auto;
+  padding: 1rem 0;
+}
+
+.image-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+  transition: transform 0.5s ease;
+}
+
+.image-item {
+  position: relative;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  aspect-ratio: 4/3;
+}
+
+.image-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.image-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.image-item:hover img {
+  transform: scale(1.05);
+}
+
+.image-item p {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+  color: white;
+  padding: 1.5rem 1rem 1rem;
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 500;
+  text-align: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.image-item:hover p {
+  opacity: 1;
+}
+
+/* Navigation Arrows (for JS carousel functionality) */
+.carousel-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 1rem;
+  z-index: 10;
+}
+
+.carousel-nav button {
+  background: rgba(255,255,255,0.7);
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  color: #0b3d91;
+  transition: all 0.3s ease;
+}
+
+.carousel-nav button:hover {
+  background: #0b3d91;
+  color: white;
+}
+
+/* ================ RESPONSIVE DESIGN ================ */
+@media (max-width: 1200px) {
+  .image-container {
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  }
+}
+
+@media (max-width: 992px) {
+  .gallery {
+    padding: 1.5rem;
+  }
+  
+  .gallery h2 {
+    font-size: 2.2rem;
+  }
+  
+  .image-container {
+    gap: 1.2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .gallery {
+    margin-top: 5rem;
+  }
+  
+  .image-container {
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  }
+  
+  .image-item p {
+    font-size: 1rem;
+    padding: 1rem 0.5rem;
+    opacity: 1; /* Always show on mobile */
+    background: rgba(0,0,0,0.7);
+  }
+}
+
+@media (max-width: 576px) {
+  .gallery {
+    padding: 1rem;
+    margin-top: 4rem;
+  }
+  
+  .gallery h2 {
+    font-size: 2rem;
+  }
+  
+  .image-container {
+    grid-template-columns: 1fr;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+}
+
+/* Footer adjustments for gallery page */
+footer {
+  margin-top: 3rem;
+}

@@ -1,0 +1,121 @@
+<styl>
+  /* ================ CONTACT PAGE STYLES ================ */
+  .contact-form {
+    max-width: 500px;
+    margin: 100px auto 50px;
+    background: #fff;
+    padding: 2.5rem;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    text-align: center;
+    position: relative;
+  }
+
+  .contact-form h2 {
+    color: #0b3d91;
+    margin-bottom: 1.5rem;
+    font-size: 2rem;
+    position: relative;
+    padding-bottom: 0.5rem;
+  }
+
+  .contact-form h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background: #ffcc00;
+  }
+
+  .contact-form input,
+  .contact-form textarea {
+    width: 100%;
+    padding: 12px 15px;
+    margin: 0.8rem 0;
+    border: 1px solid #e0e0e0;
+    border-radius: 6px;
+    font-family: inherit;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+  }
+
+  .contact-form input:focus,
+  .contact-form textarea:focus {
+    border-color: #0b3d91;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(11, 61, 145, 0.1);
+  }
+
+  .contact-form textarea {
+    min-height: 150px;
+    resize: vertical;
+  }
+
+  .contact-form button {
+    width: 100%;
+    padding: 12px;
+    margin-top: 1rem;
+    background-color: #0b3d91;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .contact-form button:hover {
+    background-color: #092c6c;
+    transform: translateY(-2px);
+  }
+
+  .success-message {
+    color: #28a745;
+    margin: 1rem 0;
+    padding: 0.75rem;
+    background: #e8f5e9;
+    border-radius: 4px;
+    font-weight: 500;
+  }
+
+  .error-message {
+    color: #dc3545;
+    margin: 1rem 0;
+    padding: 0.75rem;
+    background: #fce8e8;
+    border-radius: 4px;
+    font-weight: 500;
+  }
+
+  /* ================ RESPONSIVE ADJUSTMENTS ================ */
+  @media (max-width: 768px) {
+    .contact-form {
+      margin: 80px auto 40px;
+      padding: 2rem;
+      width: 90%;
+    }
+    
+    .contact-form h2 {
+      font-size: 1.75rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .contact-form {
+      margin: 70px auto 30px;
+      padding: 1.5rem;
+    }
+    
+    .contact-form h2 {
+      font-size: 1.5rem;
+    }
+    
+    .contact-form input,
+    .contact-form textarea {
+      padding: 10px 12px;
+    }
+  }

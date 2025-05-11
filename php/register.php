@@ -1,34 +1,222 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Register - Explore Ethiopia</title>
-    <link rel="stylesheet" href="../css/style.css">
-    <style>
-        body { font-family: Arial; background-color: #f4f4f4; display: flex; justify-content: center; align-items: center; height: 100vh; }
-        .login-box { background: white; padding: 30px; border-radius: 10px; width: 100%; max-width: 400px; box-shadow: 0 0 10px rgba(0,0,0,0.1); text-align: center; }
-        input { width: 100%; padding: 10px; margin: 10px 0; border: 1px solid #ccc; border-radius: 5px; }
-        button { width: 100%; padding: 10px; background: #0b3d91; color: white; border: none; border-radius: 5px; cursor: pointer; }
-        button:hover { background: #092c6c; }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Register - Explore Ethiopia</title>
+
+  <!-- Shared CSS -->
+  <link rel="stylesheet" href="../css/style.css">
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  
+  <!-- Page-Specific Styles -->
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: var(--light-color);
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      padding-top: 80px;
+    }
+
+    main {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+
+    .register-box {
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      width: 100%;
+      max-width: 400px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      margin: 20px 0;
+    }
+
+    .register-box h2 {
+      color: var(--primary-color);
+      margin-bottom: 20px;
+    }
+
+    .register-box input {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .register-box button {
+      width: 100%;
+      padding: 10px;
+      background-color: var(--primary-color);
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .register-box button:hover {
+      background-color: #092c6c;
+    }
+
+    .register-box p {
+      margin-top: 15px;
+      font-size: 0.95rem;
+    }
+
+    .register-box a {
+      color: var(--secondary-color);
+      text-decoration: underline;
+    }
+
+    .success-message {
+      color: green;
+      margin-top: 15px;
+    }
+
+    .error-message {
+      color: red;
+      margin-top: 15px;
+    }
+
+    /* Footer styles to match other pages */
+    .footer-container {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      padding: 30px 0;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .footer-left, .footer-middle {
+      flex: 1;
+      min-width: 250px;
+      padding: 0 15px;
+    }
+    
+    .footer-logo {
+      max-width: 150px;
+      margin-bottom: 15px;
+    }
+    
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 0;
+      border-top: 1px solid #ddd;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .social-icons a {
+      margin-left: 15px;
+      color: #0b3d91;
+      font-size: 18px;
+    }
+
+    .contact-info {
+      list-style: none;
+    }
+
+    .contact-info li {
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+  </style>
 </head>
 <body>
-    <div class="login-box">
-        <h2>Register</h2>
-        <?php
-        session_start();
-        if (!empty($_SESSION['error'])) {
-            echo "<p style='color:red;'>".$_SESSION['error']."</p>";
-            unset($_SESSION['error']);
-        }
-        ?>
-        <form action="process_register.php" method="POST">
-            <input type="text" name="username" placeholder="Username" required>
-            <input type="email" name="email" placeholder="Email" required>
-            <input type="password" name="password" placeholder="Create Password" required>
-            <button type="submit">Register</button>
-        </form>
-        <p>Already have an account? <a href="login.php">Login here</a></p>
+
+  <!-- Header -->
+  <header>
+    <h1>Ethiopia</h1>
+    <nav class="navbar">
+      <ul class="nav-list">
+        <li><a href="../html/index.html">Home</a></li>
+        <li><a href="../html/about.html">About</a></li>
+        <li><a href="../html/place.html">Places</a></li>
+        <li><a href="../html/gallery.html">Gallery</a></li>
+        <li><a href="contact.php">Contact</a></li>
+        <li><a href="login.php">Login</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Registration Form -->
+  <main>
+    <div class="register-box">
+      <h2>Register</h2>
+
+      <?php if (!empty($_SESSION['error'])): ?>
+        <p class="error-message"><?= $_SESSION['error']; unset($_SESSION['error']); ?></p>
+      <?php endif; ?>
+
+      <?php if (!empty($_SESSION['message'])): ?>
+        <p class="success-message"><?= $_SESSION['message']; unset($_SESSION['message']); ?></p>
+      <?php endif; ?>
+
+      <form action="process_register.php" method="POST">
+        <input type="text" name="Fullname" placeholder="Fullname" required>
+        <input type="text" name="username" placeholder="Choose a username" required>
+        <input type="email" name="email" placeholder="Your email address" required>
+        <input type="password" name="password" placeholder="Create a password" required>
+        <input type="password" name="confirm_password" placeholder="Confirm Password" required>
+        <button type="submit">Register</button>
+      </form>
+
+      <p>Already have an account? <a href="login.php">Login here</a></p>
     </div>
+  </main>
+
+  <!-- Footer - Matching other pages -->
+  <footer>
+    <div class="footer-container">
+      <!-- Left: Company Info -->
+      <div class="footer-left">
+        <img src="../image/logo.png" alt="Logo" class="footer-logo" />
+        <p class="footer-description">
+          Explore Ethiopia is your gateway to discovering the rich culture, history, and natural beauty of Ethiopia.
+          From ancient rock-hewn churches to breathtaking landscapes, we help travelers plan unforgettable journeys.
+        </p>
+      </div>
+
+      <!-- Middle: Contact Info -->
+      <div class="footer-middle">
+        <h3>Contact Us</h3>
+        <ul class="contact-info">
+          <li><i class="fas fa-phone"></i> +01 (123) 4567 90</li>
+          <li><i class="fas fa-envelope"></i> info@exploreethiopia.com</li>
+          <li><i class="fas fa-map-marker-alt"></i> Addis Ababa, Ethiopia</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Bottom: Copyright & Social Media -->
+    <div class="footer-bottom">
+      <p class="copyright">&copy; <?php echo date('Y'); ?> Explore Ethiopia. All rights reserved.</p>
+      <div class="social-icons">
+        <a href="https://www.facebook.com/ExploreEthiopia" target="_blank"><i class="fab fa-facebook-f"></i></a>
+        <a href="mailto:info@exploreethiopia.com"><i class="fas fa-envelope"></i></a>
+        <a href="https://telegram.me/ExploreEthiopia" target="_blank"><i class="fab fa-telegram-plane"></i></a>
+        <a href="https://www.instagram.com/ExploreEthiopia" target="_blank"><i class="fab fa-instagram"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JS -->
+  <script src="../js/script.js"></script>
 </body>
 </html>

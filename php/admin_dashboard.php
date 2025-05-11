@@ -1,19 +1,30 @@
 <?php
 session_start();
-if (!isset($_SESSION['user_id']) || $_SESSION['role'] !== 'admin') {
+if (!isset($_SESSION['admin'])) {
     header("Location: login.php");
-    exit;
+    exit();
 }
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
     <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
-    <h2>Welcome, <?php echo $_SESSION['username']; ?>!</h2>
-    <p>You're logged in as an Admin.</p>
-    <a href="logout.php">Logout</a>
+    <header>
+        <h1>Admin Dashboard</h1>
+        <nav class="navbar">
+            <ul class="nav-list">
+                <!-- Your admin menu items here -->
+                <li><a href="logout.php">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main>
+        <h2>Welcome, <?php echo $_SESSION['admin']['username']; ?></h2>
+        <!-- Admin content here -->
+    </main>
 </body>
 </html>
