@@ -140,20 +140,7 @@
 </head>
 <body>
 
-  <!-- Header -->
-  <header>
-    <h1>Ethiopia</h1>
-    <nav class="navbar">
-      <ul class="nav-list">
-        <li><a href="../html/index.html">Home</a></li>
-        <li><a href="../html/about.html">About</a></li>
-        <li><a href="../html/place.html">Places</a></li>
-        <li><a href="../html/gallery.html">Gallery</a></li>
-        <li><a href="contact.php">Contact</a></li>
-        <li><a href="login.php">Login</a></li>
-      </ul>
-    </nav>
-  </header>
+  
 
   <!-- Registration Form -->
   <main>
@@ -181,40 +168,7 @@
     </div>
   </main>
 
-  <!-- Footer - Matching other pages -->
-  <footer>
-    <div class="footer-container">
-      <!-- Left: Company Info -->
-      <div class="footer-left">
-        <img src="../image/logo.png" alt="Logo" class="footer-logo" />
-        <p class="footer-description">
-          Explore Ethiopia is your gateway to discovering the rich culture, history, and natural beauty of Ethiopia.
-          From ancient rock-hewn churches to breathtaking landscapes, we help travelers plan unforgettable journeys.
-        </p>
-      </div>
-
-      <!-- Middle: Contact Info -->
-      <div class="footer-middle">
-        <h3>Contact Us</h3>
-        <ul class="contact-info">
-          <li><i class="fas fa-phone"></i> +01 (123) 4567 90</li>
-          <li><i class="fas fa-envelope"></i> info@exploreethiopia.com</li>
-          <li><i class="fas fa-map-marker-alt"></i> Addis Ababa, Ethiopia</li>
-        </ul>
-      </div>
-    </div>
-
-    <!-- Bottom: Copyright & Social Media -->
-    <div class="footer-bottom">
-      <p class="copyright">&copy; <?php echo date('Y'); ?> Explore Ethiopia. All rights reserved.</p>
-      <div class="social-icons">
-        <a href="https://www.facebook.com/ExploreEthiopia" target="_blank"><i class="fab fa-facebook-f"></i></a>
-        <a href="mailto:info@exploreethiopia.com"><i class="fas fa-envelope"></i></a>
-        <a href="https://telegram.me/ExploreEthiopia" target="_blank"><i class="fab fa-telegram-plane"></i></a>
-        <a href="https://www.instagram.com/ExploreEthiopia" target="_blank"><i class="fab fa-instagram"></i></a>
-      </div>
-    </div>
-  </footer>
+  
 
   <!-- JS -->
   <script src="../js/script.js"></script>

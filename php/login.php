@@ -40,7 +40,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
         header("Location: admin_dashboard.php");
         exit();
         
-        /* Production code (uncomment when db is ready):
+     
         $username = $_POST['username'];
         $password = $_POST['password'];
         
@@ -65,7 +65,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
         } else {
             $error = "Invalid credentials";
         }
-        */
+        
     } catch (PDOException $e) {
         // If database connection fails, still allow admin access for testing
         if($_POST['username'] === 'admin' && $_POST['password'] === 'admin123') {
@@ -86,7 +86,8 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Login - Explore Ethiopia</title>
-  <link rel="stylesheet" href="../css/style.css">
+  <!-- <link rel="stylesheet" href="../css/style.css"> -->
+  <link rel="stylesheet" href="../css/login.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   <style>
     .login-box {
@@ -97,6 +98,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
       border-radius: 10px;
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
       text-align: center;
+      margin-top: 120px;
     }
     .login-box h2 { color: #0b3d91; margin-bottom: 20px; }
     .login-box input { width: 100%; padding: 10px; margin: 10px 0; border: 1px solid #ccc; border-radius: 5px; }
@@ -106,19 +108,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
   </style>
 </head>
 <body>
-  <header>
-    <h1>Ethiopia</h1>
-    <nav class="navbar">
-      <ul class="nav-list">
-        <li><a href="../html/index.html">Home</a></li>
-        <li><a href="../html/about.html">About</a></li>
-        <li><a href="../html/place.html">Places</a></li>
-        <li><a href="../html/gallery.html">Gallery</a></li>
-        <li><a href="contact.php">Contact</a></li>
-        <li><a href="login.php" class="active">Login</a></li>
-      </ul>
-    </nav>
-  </header>
+  
 
   <div class="login-box">
     <h2>Login</h2>
@@ -132,36 +122,6 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
     </form>
     <p>Don't have an account? <a href="register.php">Register here</a></p>
   </div>
-
-   <footer>
-    <div class="footer-container">
-      <div class="footer-left">
-        <img src="../image/logo.jpg" alt="Logo" class="footer-logo" />
-        <p class="footer-description">
-          Explore Ethiopia is your gateway to discovering the rich culture, history, and natural beauty of Ethiopia.
-        </p>
-      </div>
-      <div class="footer-middle">
-        <h3>Contact Us</h3>
-        <ul class="contact-info">
-          <li><i class="fas fa-phone"></i> +01 (123) 4567 90</li>
-          <li><i class="fas fa-envelope"></i> info@exploreethiopia.com</li>
-          <li><i class="fas fa-map-marker-alt"></i> Addis Ababa, Ethiopia</li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="footer-bottom">
-      <p class="copyright">&copy; 2025 Explore Ethiopia. All rights reserved.</p>
-      <div class="social-icons">
-        <a href="https://www.facebook.com/ExploreEthiopia " target="_blank"><i class="fab fa-facebook-f"></i></a>
-        <a href="mailto:info@exploreethiopia.com"><i class="fas fa-envelope"></i></a>
-        <a href="https://telegram.me/ExploreEthiopia " target="_blank"><i class="fab fa-telegram-plane"></i></a>
-        <a href="https://www.instagram.com/ExploreEthiopia " target="_blank"><i class="fab fa-instagram"></i></a>
-      </div>
-    </div>
-  </footer>
-
   <script src="../js/script.js"></script>
 </body>
 </html>
